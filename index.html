@@ -1394,11 +1394,221 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* تم إزالة الـ video-caption نهائياً */
-
         @media (max-width: 768px) {
             .third-title { font-size: 1.8rem; }
             .video-card { max-width: 100%; }
+        }
+
+        /* ========== القسم الرابع – معرض الصور ========== */
+        .photo-gallery-section {
+            background: url('115115wweggasvxapp985.jpg') center/cover fixed no-repeat;
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            margin-top: 60px;
+            border-radius: 40px 40px 0 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.7);
+            border-top: 2px solid rgba(255,105,180,0.5);
+        }
+
+        .photo-gallery-section.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .photo-gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .gallery-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 200px;
+            gap: 15px;
+        }
+
+        .grid-item {
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(255,105,180,0.5);
+        }
+
+        .grid-item img, .grid-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .grid-item.tall {
+            grid-row: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .image-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .image-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ========== القسم الخامس – رسالة الحب الأخيرة ========== */
+        .final-message-section {
+            background: url('589dwd4122563qewewettt55548848.jpg') center/cover fixed no-repeat;
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            margin-top: 60px;
+            border-radius: 40px 40px 0 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.7);
+            border-top: 2px solid rgba(255,105,180,0.5);
+        }
+
+        .final-message-section.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .final-message-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+            backdrop-filter: blur(2px);
+        }
+
+        .message-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 50px 40px;
+            border: 2px solid rgba(255,105,180,0.5);
+            box-shadow: 0 0 50px rgba(255,105,180,0.3);
+            color: white;
+            text-align: center;
+            font-family: 'Amiri', 'Reem Kufi', serif;
+            font-size: 1.6rem;
+            line-height: 2;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .message-content p {
+            margin-bottom: 20px;
+        }
+
+        .message-content .hearts {
+            font-size: 3rem;
+            margin-top: 20px;
+            letter-spacing: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .message-content {
+                font-size: 1.3rem;
+                padding: 30px 20px;
+            }
+        }
+
+        /* مودال عرض الصور */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .image-modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255,105,180,0.5);
+        }
+
+        .close-image-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .close-image-modal:hover {
+            background: rgba(255,105,180,0.7);
+            transform: scale(1.1);
         }
 
         /* ===== مودال تشغيل الفيديو (للقسم الثاني) ===== */
@@ -1677,16 +1887,55 @@
                             <source src="98erv15d2a6.mp4" type="video/mp4">
                             متصفحك لا يدعم تشغيل الفيديو
                         </video>
-                        <!-- تم إزالة النص -->
                     </div>
                     <div class="video-card">
                         <video controls playsinline>
                             <source src="4871dclpfoa52.mp4" type="video/mp4">
                             متصفحك لا يدعم تشغيل الفيديو
                         </video>
-                        <!-- تم إزالة النص -->
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- ========== القسم الرابع – معرض الصور (5 عناصر فقط) ========== -->
+        <div class="photo-gallery-section" id="photoGallerySection">
+            <div class="gallery-container">
+                <div class="image-grid">
+                    <!-- صورة طولية 1 -->
+                    <div class="grid-item tall" onclick="openImageModal('4wdmpoz59684444.jpg')">
+                        <img src="4wdmpoz59684444.jpg" alt="صورة 1">
+                    </div>
+                    <!-- صورة طولية 2 -->
+                    <div class="grid-item tall" onclick="openImageModal('15968489fewwgrwgrg48641648.jpg')">
+                        <img src="15968489fewwgrwgrg48641648.jpg" alt="صورة 2">
+                    </div>
+                    <!-- فيديو طولي -->
+                    <div class="grid-item tall">
+                        <video controls playsinline>
+                            <source src="56698lkkoij457812.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <!-- صورة مربعة 4:3 (خلية واحدة) -->
+                    <div class="grid-item" onclick="openImageModal('445889ajeifnv48888882.jpg')">
+                        <img src="445889ajeifnv48888882.jpg" alt="صورة 3">
+                    </div>
+                    <!-- صورة مربعة 4:3 (خلية واحدة) -->
+                    <div class="grid-item" onclick="openImageModal('74489ewfjuujngw7848749999.jpg')">
+                        <img src="74489ewfjuujngw7848749999.jpg" alt="صورة 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== القسم الخامس – رسالة الحب الأخيرة ========== -->
+        <div class="final-message-section" id="finalMessageSection">
+            <div class="message-content">
+                <p>كل سنة وانتي طيبة يا بسنت وكل سنة واحنا بنحب بعض وهنفضل نحب بعض للأبد وربنا يخليكي ليا وميحرمنيش منك لحظة ويسعدك دايما وتفضلي تضحكي على طول يا صاحبة أجمل وأحلى ضحكة في العالم وأجمل إنسانة في الدنيا</p>
+                <p>انا بحبك جدا جدا جدا جدا جدا جدا جدا جدا جدا بموت فيكي مقدرش أستغنى عنك ولا عن ضحكتك ولا عن نظرتك ربنا يفرح قلبك دايما ويحققلك كل اللي بتتمنيه يارب ويارب عينك الحلوة متدمعش أبدا ولا قلبك يحزن ولا شفايفك تزعل ابتسمي دائما أحبك ♥️🥰</p>
+                <p>في كل ثانية تمر أحبك أكثر مما مضت وهفضل أحبك أكتر عشان انتي مش مجرد شخص ولا زي أي شخص انتي غير كل البشر انتي كائن مميز جدا ومهم عندي بحبك ربنا يخليكي ليا ويجمع بينا في الدنيا والآخرة وميحرمناش من بعض مقدرش أعيش من غيرك 🤍♥️🫂</p>
+                <p>بحبك ابتسمي ابتسمي ها ها ها لو مش فرحانة افرحي غصب عنك مليش دعوة أو هضربك عشان بحبك ومش عايزك تزعلي أبدا من أي حاجة بحبك ويارب تفضلي فرحانة على طول هذا يسعدني حقا ♥️♥️♥️♥️♥️💍👑 يا ملكة قلبي</p>
+                <div class="hearts">♥️🥰🫂🥰♥️</div>
             </div>
         </div>
 
@@ -1740,6 +1989,14 @@
             <video id="modalVideo" controls autoplay>
                 <source src="" type="video/mp4">
             </video>
+        </div>
+    </div>
+
+    <!-- مودال عرض الصور (للقسم الرابع) -->
+    <div class="image-modal" id="imageModal" onclick="closeImageModal(event)">
+        <div class="image-modal-content">
+            <span class="close-image-modal" onclick="closeImageModal(event)">&times;</span>
+            <img id="modalImage" src="" alt="">
         </div>
     </div>
 
@@ -2245,7 +2502,7 @@
 
         // تفعيل ظهور الأقسام عند التمرير
         function initRevealSections() {
-            const sections = document.querySelectorAll('.romantic-reveal-section, .video-gallery-section, .third-romantic-section');
+            const sections = document.querySelectorAll('.romantic-reveal-section, .video-gallery-section, .third-romantic-section, .photo-gallery-section, .final-message-section');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2277,6 +2534,21 @@
             if (event.target === modal || event.target.classList.contains('close-modal')) {
                 modalVideo.pause();
                 modalVideo.src = '';
+                modal.classList.remove('active');
+            }
+        }
+
+        // وظائف القسم الرابع – الصور
+        function openImageModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.classList.add('active');
+        }
+
+        function closeImageModal(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal || event.target.classList.contains('close-image-modal')) {
                 modal.classList.remove('active');
             }
         }
