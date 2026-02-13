@@ -1067,7 +1067,7 @@
             80% { transform: translateX(10px); }
         }
 
-        /* ========== القسم الرومانسي الأول (مُحدَّث) ========== */
+        /* ========== القسم الرومانسي الأول ========== */
         .romantic-reveal-section {
             background: url('415rgew1857.jpg') center/cover fixed no-repeat;
             position: relative;
@@ -1200,7 +1200,7 @@
             }
         }
 
-        /* ========== القسم الرومانسي الجديد – معرض الفيديوهات بالقلوب ========== */
+        /* ========== القسم الرومانسي الثاني – معرض الفيديوهات بالقلوب ========== */
         .video-gallery-section {
             background: url('45efgbxnm895.jpg') center/cover fixed no-repeat;
             position: relative;
@@ -1279,7 +1279,6 @@
             box-shadow: 0 0 35px rgba(255, 105, 180, 0.9);
         }
 
-        /* ألوان القلوب – بينك وأحمر فقط */
         .heart-pink {
             background: radial-gradient(circle at 30% 30%, #ff9a9e, #ff6b8b);
         }
@@ -1288,7 +1287,6 @@
             background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a);
         }
 
-        /* القلب الأوسط – مميز بالفيديو الحقيقي */
         .center-heart {
             top: 50%;
             left: 50%;
@@ -1301,7 +1299,6 @@
             box-shadow: 0 0 40px rgba(255,0,0,0.8);
         }
 
-        /* توزيع القلوب الأخرى */
         .heart-1 { top: 10%; left: 15%; }
         .heart-2 { top: 15%; right: 20%; }
         .heart-3 { bottom: 15%; left: 10%; }
@@ -1318,7 +1315,93 @@
             .center-heart { width: 75px; height: 75px; font-size: 40px; }
         }
 
-        /* ===== مودال تشغيل الفيديو ===== */
+        /* ========== القسم الرومانسي الثالث – فيديوهين ========== */
+        .third-romantic-section {
+            background: url('789rkmcas549621op7.jpg') center/cover fixed no-repeat;
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            margin-top: 60px;
+            border-radius: 40px 40px 0 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.7);
+            border-top: 2px solid rgba(255,105,180,0.5);
+        }
+
+        .third-romantic-section.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .third-romantic-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 11, 46, 0.6);
+            z-index: 1;
+            backdrop-filter: blur(3px);
+        }
+
+        .third-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+
+        .third-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ffb6c1;
+            text-shadow: 0 0 20px rgba(255,105,180,0.8);
+            font-weight: 900;
+        }
+
+        .videos-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .video-card {
+            flex: 1 1 300px;
+            max-width: 500px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 20px;
+            border: 2px solid rgba(255,105,180,0.5);
+            box-shadow: 0 0 30px rgba(255,105,180,0.3);
+        }
+
+        .video-card video {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* تم إزالة الـ video-caption نهائياً */
+
+        @media (max-width: 768px) {
+            .third-title { font-size: 1.8rem; }
+            .video-card { max-width: 100%; }
+        }
+
+        /* ===== مودال تشغيل الفيديو (للقسم الثاني) ===== */
         .video-modal {
             display: none;
             position: fixed;
@@ -1564,7 +1647,7 @@
             </div>
         </div>
 
-        <!-- ========== القسم الرومانسي الجديد – معرض فيديوهات القلوب ========== -->
+        <!-- ========== القسم الرومانسي الثاني – معرض فيديوهات القلوب ========== -->
         <div class="video-gallery-section" id="videoGallerySection">
             <h2 class="gallery-title">🎬</h2>
             <div class="hearts-container-gallery">
@@ -1572,7 +1655,7 @@
                 <div class="heart-btn heart-red center-heart" data-video="1v1000o5.mp4" onclick="playVideo(this)">
                     ❤️
                 </div>
-                <!-- قلوب أخرى – كل قلب له فيديو خاص به (الأسماء حسب الطلب) -->
+                <!-- قلوب أخرى – كل قلب له فيديو خاص به -->
                 <div class="heart-btn heart-pink heart-1" data-video="45EF,BKMNFDL69.mp4" onclick="playVideo(this)">❤️</div>
                 <div class="heart-btn heart-red heart-2" data-video="8ER1B2A6q5w55.mp4" onclick="playVideo(this)">❤️</div>
                 <div class="heart-btn heart-pink heart-3" data-video="85qmzxnmnkf99.mp4" onclick="playVideo(this)">❤️</div>
@@ -1584,6 +1667,29 @@
             </div>
         </div>
 
+        <!-- ========== القسم الرومانسي الثالث – فيديوهين (بدون نصوص) ========== -->
+        <div class="third-romantic-section" id="thirdRomanticSection">
+            <div class="third-content">
+                <h2 class="third-title">Thank you for being in my life</h2>
+                <div class="videos-row">
+                    <div class="video-card">
+                        <video controls playsinline>
+                            <source src="98erv15d2a6.mp4" type="video/mp4">
+                            متصفحك لا يدعم تشغيل الفيديو
+                        </video>
+                        <!-- تم إزالة النص -->
+                    </div>
+                    <div class="video-card">
+                        <video controls playsinline>
+                            <source src="4871dclpfoa52.mp4" type="video/mp4">
+                            متصفحك لا يدعم تشغيل الفيديو
+                        </video>
+                        <!-- تم إزالة النص -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="chat-btn" onclick="showChatLogin()">💬</div>
     </div>
 
@@ -1591,7 +1697,7 @@
     <audio id="audioAr"></audio>
     <audio id="audioEn"></audio>
 
-    <!-- شاشة الدردشة -->
+    <!-- شاشة الدردشة (كاملة) -->
     <div class="chat-container" id="chatContainer">
         <div class="chat-header">
             <div class="back-button" onclick="closeChat()">←</div>
@@ -1627,7 +1733,7 @@
         </div>
     </div>
 
-    <!-- مودال تشغيل الفيديو -->
+    <!-- مودال تشغيل الفيديو (للقسم الثاني) -->
     <div class="video-modal" id="videoModal" onclick="closeModal(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal(event)">&times;</span>
@@ -2139,7 +2245,7 @@
 
         // تفعيل ظهور الأقسام عند التمرير
         function initRevealSections() {
-            const sections = document.querySelectorAll('.romantic-reveal-section, .video-gallery-section');
+            const sections = document.querySelectorAll('.romantic-reveal-section, .video-gallery-section, .third-romantic-section');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2153,7 +2259,7 @@
             });
         }
 
-        // وظائف القسم الجديد – الفيديو
+        // وظائف القسم الثاني – الفيديو
         function playVideo(element) {
             const videoSrc = element.getAttribute('data-video');
             if (videoSrc) {
@@ -2168,15 +2274,12 @@
         function closeModal(event) {
             const modal = document.getElementById('videoModal');
             const modalVideo = document.getElementById('modalVideo');
-            // إذا ضغط المستخدم على الخلفية أو زر الإغلاق
             if (event.target === modal || event.target.classList.contains('close-modal')) {
                 modalVideo.pause();
                 modalVideo.src = '';
                 modal.classList.remove('active');
             }
         }
-
-        // لم نعد بحاجة لدالة comingSoon() لأن كل قلب له فيديو
     </script>
 </body>
 </html>
